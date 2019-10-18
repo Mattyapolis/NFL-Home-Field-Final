@@ -1,5 +1,5 @@
 // API link 
-var link = "https://raw.githubusercontent.com/Mattyapolis/NFL-Home-Away-Analysis-/nlf-stadium-map/Json%20files/nflStadium.geojson"
+var link = "https://raw.githubusercontent.com/Mattyapolis/NFL-Home-Field-Final/master/resources/json/nflStadium.geojson"
 function markersize(stadium_capacity) {
   return stadium_capacity * 15000000000;
 }

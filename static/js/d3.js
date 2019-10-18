@@ -96,14 +96,14 @@ function updateToolTip(chosenXAxis, barsGroup) {
 }
 
 // Retrieve data from the CSV file and execute everything below
-d3.csv("https://raw.githubusercontent.com/Mattyapolis/NFL-Home-Away-Analysis-/Home_Analysis/CSV%20files/Overall_Average_Table.csv").then(function(nflData, err) {
+d3.json("http://127.0.0.1:5000/seasons-data").then(function(nflData, err) {
     if (err) throw err;
 
     // parse data
     nflData.forEach(function(data) {
         data.season = String(data.season);
-        data.homewin = Number(data.homewin);
-        data.homescore = Number(data.homescore);
+        data.homewin = Number(data.homeWin);
+        data.homescore = Number(data.homeScore);
     });
 
     // xLinearScale function above csv import

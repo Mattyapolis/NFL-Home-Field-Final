@@ -82,7 +82,7 @@ def season_metadata(season):
     return jsonify(season_metadata)
 
 
-@app.route("/seasons-data")
+@app.route("/seasons-data", methods=['GET'])
 def seasons_data():
     sel = [
     HomeAnalysis.season,
@@ -104,6 +104,8 @@ def seasons_data():
         season_dict["homeScore"] = homescore
         season_dict["awayScore"] = awayscore
         season_data.append(season_dict)
+        
+        
 
     return jsonify(season_data)
 
