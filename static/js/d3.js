@@ -35,7 +35,7 @@ function xScale(nflData, chosenXAxis) {
     // create scales
     var xLinearScale = d3.scaleLinear()
         .domain([d3.min(nflData, d => d[chosenXAxis]) * 0.8,
-            d3.max(nflData, d => d[chosenXAxis]) * 1.2
+            d3.max(nflData, d => d[chosenXAxis]) * 1.05
         ])
         .range([0, width]);
 
@@ -139,7 +139,7 @@ d3.json("http://127.0.0.1:5000/seasons-data").then(function(nflData, err) {
         .attr("width", d => xLinearScale(d[chosenXAxis]))
         .attr("x", 0)
         .attr("opacity", "1")
-        .attr("fill", "blue");
+        .attr("fill", "lime");
 
 
     // var barsText = chartGroup.selectAll("yearText")
