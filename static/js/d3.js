@@ -7,8 +7,8 @@ var svgHeight = 500;
 var margin = {
     top: 20,
     right: 40,
-    bottom: 80,
-    left: 100
+    bottom: 150,
+    left: 80
 };
 
 //Set chart size
@@ -100,12 +100,13 @@ d3.json("http://127.0.0.1:5000/seasons-data").then(function(nflData, err) {
     if (err) throw err;
 
     // parse data
+    
     nflData.forEach(function(data) {
-        data.season = String(data.season);
+        data.season = String(+data.season);
         data.homewin = Number(data.homeWin);
         data.homescore = Number(data.homeScore);
     });
-
+    
     // xLinearScale function above csv import
     var xLinearScale = xScale(nflData, chosenXAxis);
 
@@ -113,19 +114,25 @@ d3.json("http://127.0.0.1:5000/seasons-data").then(function(nflData, err) {
     var y = d3.scaleLinear()
         .domain([2009, 2019])
         .range([0, height]);
-
+        
+        
+    
+    
     // Create initial axis functions
     var bottomAxis = d3.axisBottom(xLinearScale);
-    var leftAxis = d3.axisLeft(y);
+    var leftAxis = d3.axisLeft(y)
+        .tickFormat(d3.format("d"));
 
     // append x axis
     var xAxis = chartGroup.append("g")
         .classed("x-axis", true)
+        .attr("stroke", "#FFC62F")
         .attr("transform", `translate(0, ${height})`)
         .call(bottomAxis);
 
     // append y axis
     chartGroup.append("g")
+        .attr("stroke", "#FFC62F")
         .call(leftAxis);
 
     // append initial bars
@@ -139,25 +146,7 @@ d3.json("http://127.0.0.1:5000/seasons-data").then(function(nflData, err) {
         .attr("width", d => xLinearScale(d[chosenXAxis]))
         .attr("x", 0)
         .attr("opacity", "1")
-        .attr("fill", "lime");
-
-
-    // var barsText = chartGroup.selectAll("yearText")
-    //     .data(nflData)
-    //     .enter()
-    //     .append("text")
-    //     .text(function(d) {
-    //         return d.season
-    //     })
-    //     .attr("x", function(d) {
-    //         return xLinearScale(d[chosenXAxis]);
-    //     })
-    //     .attr("y", function(d) {
-    //         return yLinearScale(d.season);
-    //     })
-    //     .attr("font-size", "10px")
-    //     .attr("text-anchor", "middle")
-    //     .attr("fill", "black");
+        .attr("fill", "#FFC62F");
 
     // Create group for  2 x- axis labels
     var labelsGroup = chartGroup.append("g")
@@ -167,6 +156,7 @@ d3.json("http://127.0.0.1:5000/seasons-data").then(function(nflData, err) {
         .attr("x", 0)
         .attr("y", 20)
         .attr("value", "homescore") // value to grab for event listener
+        .style("fill", "#FFC62F")
         .classed("active", true)
         .text("Average Home Score");
 
@@ -174,6 +164,7 @@ d3.json("http://127.0.0.1:5000/seasons-data").then(function(nflData, err) {
         .attr("x", 0)
         .attr("y", 40)
         .attr("value", "homewin") // value to grab for event listener
+        .style("fill", "#FFC62F")
         .classed("inactive", true)
         .text("Home Win Rate");
 
@@ -183,6 +174,7 @@ d3.json("http://127.0.0.1:5000/seasons-data").then(function(nflData, err) {
         .attr("y", 0 - margin.left)
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
+        .style("fill", "#FFC62F")
         .classed("axis-text", true)
         .text("Year");
 

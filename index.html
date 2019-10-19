@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--Bootstrap CSS-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<!--CSS Path-->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
+		<!-- or -->
+<script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
+
+	<title>Does Home Field Advantage Exist?</title>
+</head>
+
+<body>
+
+<div class="navigation">
+	<!-- Navbar content -->
+	<nav class="navbar navbar-expand-lg navbar-dark text-muted" font color="white"  style="background-color:#FFC62F">
+		<a class="navbar-brand" style="background-color:#4F2683;" font color="white" href="index.html">Landing Page</a>
+		<button class="navbar-toggler type=" button data-toggle="collapse" data-target="#navbarNavDropdown"
+		aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		
+	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<ul class="navbar-nav ml-auto">
+	
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">Offense</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color:white">
+				<a class="dropdown-item" href="2019-Off.html">2019</a>
+				<a class="dropdown-item" href="2018-Off.html">2018</a>
+				<a class="dropdown-item" href="2017-Off.html">2017</a>
+				<a class="dropdown-item" href="2016-Off.html">2016</a>
+				<a class="dropdown-item" href="2015-Off.html">2015</a>
+				<a class="dropdown-item" href="2014-Off.html">2014</a>
+				<a class="dropdown-item" href="2013-Off.html">2013</a>
+				<a class="dropdown-item" href="2012-Off.html">2012</a>
+				<a class="dropdown-item" href="2011-Off.html">2011</a>
+				<a class="dropdown-item" href="2010-Off.html">2010</a>
+				<a class="dropdown-item" href="2009-Off.html">2009</a>	
+			</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">Defense</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color:white">
+				<a class="dropdown-item" href="2019-Def.html">2019</a>
+				<a class="dropdown-item" href="2018-Def.html">2018</a>
+				<a class="dropdown-item" href="2017-Def.html">2017</a>
+				<a class="dropdown-item" href="2016-Def.html">2016</a>
+				<a class="dropdown-item" href="2015-Def.html">2015</a>
+				<a class="dropdown-item" href="2014-Def.html">2014</a>
+				<a class="dropdown-item" href="2013-Def.html">2013</a>
+				<a class="dropdown-item" href="2012-Def.html">2012</a>
+				<a class="dropdown-item" href="2011-Def.html">2011</a>
+				<a class="dropdown-item" href="2010-Def.html">2010</a>
+				<a class="dropdown-item" href="2009-Def.html">2009</a>
+			</div>
+		</li>
+		<li class="nav-item">
+            <a class="nav-link" href="frappe.html">Mean Success and EPA</a>
+        </li>
+		<li class="nav-item">
+			<a class="nav-link" href="d3Map.html">D3 Map</a>
+		</li>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="d3-viz.html">D3 Viz</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="NFLscrapR2019.html">Chart Notebook</a>
+		</li>
+		</li>
+		</ul>
+	 </div>
+	</nav>
+</div>
+	<!-- Body -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+	<!-- Left box  -->
+	<div class="box">
+		<h2 class="title">Does Home Field Advantage Exist?</h2>
+		<hr>
+		<img src="https://cdn.vox-cdn.com/thumbor/FZZIUbu3xcfdLTOqVDP5ceJIVFU=/0x0:923x732/1200x800/filters:focal(398x585:544x731)/cdn.vox-cdn.com/uploads/chorus_image/image/58329969/Screen_Shot_2018_01_15_at_10.55.04_AM.0.png" class="vizualization rounded float-left" id="mainIMG" alt="TecmoBowl">
+		<h6 class="title">Topic: 11 Year NFL Home and Away Performance</h6>
+		<p><strong>Question:</strong>&nbsp;Do teams playing in their homes stadiums perform better than teams playing away?</p>
+		<p><strong>Objective:</strong>&nbsp;Develop a map showing all NFL stadiums by location. Popups on the map will display general stats relative to that particular stadium.
+		Design an app to display a dashboard that will allow users to explore and visualize the data.
+		Dashboard will visualize 11 years of game data and include EPA and point comparisons for every team in the league as well as aggregated by year.</p>
+		<p><strong>Scope of data:</strong>&nbsp;We are utilizing eleven years of game results and play-by-play data from the 2009 to 2019 NFL seasons.</p>
+		<p>
+		<strong>Metrics:</strong>
+		<br/>&#8226;Expected Points Added(EPA): This is a complicated metric popularized by Brian Burke at AdvancedNFLStats.com. 
+		At its core Expected Points (EP) is a measure of the value of the current state of the game (down, distance, field position, time remaining) 
+		to each team. Higher EP values indicate a situation favoring the offense while lower EP values favor defense. 
+		This is given at the start of each play before the ball is snapped. Expected Points Added(EPA) is the difference between EP of the 
+		previous play and the EP of next one. EPA measures the value of the outcome of play. Because its calculation includes so many factors 
+		of a football game, EPA it is a good way to assign objective values to an event chosen through subjective and situational decision making. 
+		We decided to use EPA as a measure of teams' success in home or away situations.
+		<br/>&#8226;Success: Success uses EPA to create a rate metric.  A positive EPA is classified as 1 and a negative EPA is classified as 0.  
+		A person can think of this as the rate of success for each play.
+		<br/>&#8226;Game points: We've also decided to use a more straight forward metric of game points to provide another perspective of 
+		teams' performances home and away.
+		<br/>&#8226;Source: Our data came from nflscrapR which utilizes the NFL API to pull in play by play data and game data. 
+		<br/>&#8226;API used:
+		<br/>&emsp;&#8226;<a href= "https://sportsreference.readthedocs.io/en/stable/nfl.html#player">Sports Reference API</a>
+		<br/>&emsp;&#8226;<a href="https://api.nfl.com/docs/getting-started/index.html">NFL API</a>
+		<br/>&#8226;Tools: R, Python, Flask, D3, Leaflet, Mapbox API, Javascript, Postgres SQL, Bootstrap (HTML & CSS).</p>
+	
+		</div>
+			</div>
+			
+    </div>
+	</div>
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer">&copy;2019&nbsp;Julia Smith, Julia Sweet, Ricardo Bonner, John Goodale, Matt Garcia, Kyle Younghans </div>
+  </footer>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
