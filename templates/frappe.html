@@ -83,13 +83,15 @@
 	</nav>
 </div>
 	<div class="chart-container" id="schart">	
-	<script src="frappe_static/js/success.js">
+	<!-- <script src="frappe_static/js/success.js"> -->
+	<script src="{{ url_for('frappe_static', filename='js/success.js') }}">
 	</script>
 	</div>
 
 
 	 <div class="chart-container" id="epachart">
-		<script src="frappe_static/js/epa.js">
+		<!-- <script src="frappe_static/js/epa.js"> -->
+		<script src="{{ url_for('frappe_static', filename='js/epa.js') }}">
 	</script>
 	</div> 
  

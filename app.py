@@ -44,8 +44,8 @@ HomeAnalysis = Base.classes.homeanalysis
 @app.route("/")
 def index():
     # return the homepage
-    # return render_template("index.html")
-    return 'hello matt'
+    return render_template("index.html")
+    
 
 
 @app.route("/season")
@@ -109,24 +109,10 @@ def seasons_data():
 
     return jsonify(season_data)
 
+@app.route("/2009-Off.html")
+def offense_nineteen():
+    return render_template("2009-Off.html")
 
-# @app.route("/seasons/<season>")
-# def seasons(season):
-#     # return col values for chart
-#     stmt = db.session.query(HomeAnalysis).statement
-#     df = pd.read_sql_query(stmt, db.session.bind)
-
-#     season_data = df.loc[df["season"] == season, ["homewin", "awaywin", "homescore", "awayscore"]]
-
-#     # format data to send as JSON
-#     data = {
-#         "season" : season_data.season.values.tolist(),
-#         "homeWin" : season_data.homewin.values.tolist(),
-#         "awayWin" : season_data.awaywin.values.tolist(),
-#         "homePoints" : season_data.homescore.values.tolist(),
-#         "awayPoints" : season_data.awayscore.values.tolist()
-#     }
-#     return jsonify(data)
 
 if __name__== "__main__":
     app.run()
